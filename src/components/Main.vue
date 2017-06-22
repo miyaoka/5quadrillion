@@ -1,43 +1,45 @@
 <template>
   <div class="container">
-    <div id="desire">
-      <price
-        :exponent="exponent"
-        :base="base"
-        v-model="currency"
-      >
-        <cycle-img
+    <div class="wrapper">
+      <div id="desire">
+        <price
+          :exponent="exponent"
+          :base="base"
           v-model="currency"
-          :list="[
-            'yen',
-            'dollar'
-          ]"
-          :context="require.context('@/assets/img/currency/', false, /\.png$/)"
-        ></cycle-img>
-      </price>
-      <div class="verb">
-        <cycle-img
-          v-model="verb"
-          :list="[
-            'want',
-            'dontwant'
-          ]"
-          :context="require.context('@/assets/img/verb/', false, /\.png$/)"
-        ></cycle-img>
+        >
+          <cycle-img
+            v-model="currency"
+            :list="[
+              'yen',
+              'dollar'
+            ]"
+            :context="require.context('@/assets/img/currency/', false, /\.png$/)"
+          ></cycle-img>
+        </price>
+        <div class="verb">
+          <cycle-img
+            v-model="verb"
+            :list="[
+              'want',
+              'dontwant'
+            ]"
+            :context="require.context('@/assets/img/verb/', false, /\.png$/)"
+          ></cycle-img>
+        </div>
       </div>
+
+      <money-slider
+        v-model="exponent"
+        :max="expoMax"
+        :isMobile="true"
+      ></money-slider>
+
+      <button
+        @click="onClickDomToImage"
+      >
+        画像を保存
+      </button>
     </div>
-
-    <money-slider
-      v-model="exponent"
-      :max="expoMax"
-      :isMobile="true"
-    ></money-slider>
-
-    <button
-      @click="onClickDomToImage"
-    >
-      画像を保存
-    </button>
   </div>
 </template>
 
@@ -82,6 +84,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.wrapper {
+  width: 100%;
+}
 #desire {
   display: inline-block;
   text-align: center;
