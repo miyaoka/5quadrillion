@@ -11,7 +11,7 @@
           v-if="this.exponent >= 1"
           :src="baseImgPath(exponent)"
         >
-        <img src="../assets/img/currency/yen.png">
+        <slot></slot>
       </span>
     </div>
   </div>
