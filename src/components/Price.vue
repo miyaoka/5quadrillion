@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <div>
+  <div class="container">
+    <div class="price">
       <img
         v-for="num in nums"
         :src="numImgPath(num)"
-        class="price"
       >
-      <span class="unit">
-        <img
-          v-if="this.exponent >= 1"
-          :src="baseImgPath(exponent)"
-        >
-        <slot></slot>
-      </span>
+    </div>
+    <div class="unit">
+      <img
+        v-if="this.exponent >= 1"
+        :src="baseImgPath(exponent)"
+      >
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -43,11 +42,25 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.price {
-  margin: 0 -10px;
+<style lang="postcss" scoped>
+.container {
+  white-space: nowrap;
+  display:inline-block;
 }
-.unit img{
-  margin: 0 -20px;
+.price {
+  display: inline-flex;
+  margin: 0 0 0 10px;
+
+  & img {
+    margin: 0 -10px;
+  }
+}
+.unit {
+  display: inline-flex;
+  margin: 0 16px 0 0;
+
+  & img {
+    margin: 0 -16px;
+  }
 }
 </style>
