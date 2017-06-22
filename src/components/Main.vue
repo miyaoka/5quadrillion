@@ -32,6 +32,7 @@
         v-model="exponent"
         :max="expoMax"
         :isMobile="true"
+        class="slider"
       ></money-slider>
 
       <md-button
@@ -112,5 +113,8 @@ export default {
 #desire {
   display: inline-block;
   text-align: center;
+}
+.slider {
+  margin-top:80px;
 }
 </style>
