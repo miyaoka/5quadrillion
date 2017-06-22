@@ -34,11 +34,22 @@
         :isMobile="true"
       ></money-slider>
 
-      <button
+      <md-button
+        class="md-raised "
         @click="onClickDomToImage"
       >
+        <icon name="download"></icon>
         画像を保存
-      </button>
+      </md-button>
+      <md-button
+        class="md-raised"
+        @click="onClickTweet"
+        disabled
+      >
+        <icon name="twitter"></icon>
+        現在の金額をツイート
+      </md-button>
+
     </div>
   </div>
 </template>
@@ -46,6 +57,9 @@
 <script>
 import domtoimage from 'dom-to-image'
 import FileSaver from 'file-saver'
+import Icon from 'vue-awesome/components/Icon'
+import 'vue-awesome/icons/download'
+import 'vue-awesome/icons/twitter'
 
 import Price from '@/components/Price'
 import CycleImg from '@/components/CycleImg'
@@ -59,7 +73,8 @@ export default {
   components: {
     Price,
     CycleImg,
-    MoneySlider
+    MoneySlider,
+    Icon
   },
   data () {
     return {
@@ -77,6 +92,8 @@ export default {
       .then(blob => {
         FileSaver.saveAs(blob, 'my-node.png')
       })
+    },
+    onClickTweet () {
     }
   }
 }
