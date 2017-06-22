@@ -18,6 +18,8 @@
 </template>
 
 <script>
+const numContexts = require.context('@/assets/img/number/', false, /\.png$/)
+const baseContexts = require.context('@/assets/img/unit/base10000/', false, /\.png$/)
 
 export default {
   props: {
@@ -26,13 +28,10 @@ export default {
   },
   methods: {
     numImgPath (num) {
-      return require(`@/assets/img/number/${num}.png`)
+      return numContexts(`./${num}.png`)
     },
     baseImgPath (exponent) {
-      return require(`@/assets/img/unit/base10000/${Math.floor(exponent)}.png`)
-    },
-    currencyImgPath (exponent) {
-      return require(`@/assets/img/unit/base10000/${Math.floor(exponent)}.png`)
+      return baseContexts(`./${Math.floor(exponent)}.png`)
     }
   },
   computed: {
