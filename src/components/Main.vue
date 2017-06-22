@@ -1,29 +1,35 @@
 <template>
   <div>
-    <money-number
-      :num="num"
-    ></money-number>
+    <price
+      :exponent="exponent"
+      :base="base"
+    ></price>
     <money-slider
-      v-model="num"
-      :max="5000000000000000"
+      v-model="exponent"
+      :max="expoMax"
       :isMobile="true"
     ></money-slider>
   </div>
 </template>
 
 <script>
-import MoneyNumber from '@/components/MoneyNumber'
+import Price from '@/components/Price'
 import MoneySlider from '@/components/MoneySlider'
+
+const base = 10000
+const max = 5000000000000000
 
 export default {
   name: 'main',
   components: {
-    MoneyNumber,
+    Price,
     MoneySlider
   },
   data () {
     return {
-      num: 10000
+      base: base,
+      exponent: 1,
+      expoMax: Math.log(max) / Math.log(base)
     }
   }
 }
@@ -31,21 +37,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
