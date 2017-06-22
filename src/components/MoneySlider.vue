@@ -11,6 +11,7 @@
       :dotSize="50"
       :speed=".5"
       :interval=".0001"
+      :tooltip="false"
       :processStyle = "{
         backgroundImage: '-webkit-linear-gradient(left, #ff0000, #3498db)'
       }"
