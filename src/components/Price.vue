@@ -35,7 +35,13 @@ export default {
   },
   computed: {
     nums () {
-      return String(Math.ceil(Math.pow(this.base, this.exponent % 1))).split('')
+      return String(
+        Math.floor(
+          Math.ceil(
+            Math.pow(this.base, this.exponent % 1) * this.base
+          ) / this.base
+        )
+      ).split('')
     }
   }
 }
