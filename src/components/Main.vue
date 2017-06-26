@@ -21,7 +21,8 @@
             v-model="verb"
             :list="[
               'want',
-              'dontwant'
+              'dontwant',
+              'give'
             ]"
             :context="require.context('@/assets/img/verb/', false, /\.png$/)"
           ></cycle-img>
